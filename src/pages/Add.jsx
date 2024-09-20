@@ -111,7 +111,7 @@ const Add = ({token}) => {
         </div>
         <div>
           <p className='mb-2'>Product Price</p>
-          <input onChange={(e)=>setPrice(e.target.value)} value={price} className='w-full px-3 py-2 sm:w-[120px]' type="Number" placeholder='25' />
+          <input onChange={(e)=>setPrice(e.target.value)} value={price} className='w-full px-3 py-2 sm:w-[120px]' type="Number" placeholder='Price' required />
       </div>
       </div>
       <div>
@@ -138,7 +138,7 @@ const Add = ({token}) => {
         <input onChange={()=>setBestseller(prev =>!prev)} checked={bestseller} type="checkbox" id='bestseller' />
         <label className='cursor-pointer' htmlFor="bestseller">Add to bestseller</label>
       </div>
-      <button type='submit' className='w-28 py-3 mt-4 bg-black text-white'>submit</button>
+      <button type='submit' className='w-28 py-3 mt-4 bg-black text-white'>Add</button>
 
     </form>
   )
