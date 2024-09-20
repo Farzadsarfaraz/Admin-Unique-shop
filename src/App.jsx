@@ -9,9 +9,9 @@ import Login from "./components/Login";
 import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-export const backendUrl = import.meta.env.VITE_BACKEND_URL
+export const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
-function App() {
+const App = () => {
   const [token, setToken] = useState(localStorage.getItem('token')?localStorage.getItem('token'):'');
 
   useEffect(()=>{
@@ -21,15 +21,13 @@ function App() {
   return (
     <div className="bg-gray-50 min-h-screen">
       <ToastContainer/>
-      {token === "" ? (
-        <Login setToken ={setToken}/>
-      ) : (
-        <>
+      {token === ""
+       ? <Login setToken ={setToken}/>
+       :<>
           <Navbar setToken={setToken} />
-          <hr 
-          />
+          <hr/>
           <div className="flex w-full">
-            <Sidebar />
+            <Sidebar/>
             <div className="w-[70%] max-auto ml-[max(5vw,25px)] my-8 text-gray-600 text-base">
               <Routes>
                 <Route path="/add" element={<Add token={token}/>} />
@@ -39,7 +37,7 @@ function App() {
             </div>
           </div>
         </>
-      )}
+      }
     </div>
   );
 }
